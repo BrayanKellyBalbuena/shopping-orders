@@ -37,31 +37,99 @@
 </nav>
 <div id="app">
     <v-app>
-        <template>
-            <v-card>
-                <v-card-title>
-                    Nutrition
-                    <div class="flex-grow-1"></div>
-                    <v-text-field
-                            v-model="search"
-                            append-icon="search"
-                            label="Search"
-                            single-line
-                            hide-details
-                    ></v-text-field>
-                </v-card-title>
-                <v-data-table
-                        :headers="headers"
-                        :items="orders"
-                        :items-per-page="10"
-                        :single-select="singleSelect"
-                        item-key="name"
-                        :search="search"
-                        show-select
-                        class="elevation-1"
 
-                ></v-data-table>
-            </v-card>
+        <template>
+            <v-data-table
+                    :headers="headers"
+                    :items="orders"
+                    :search="search"
+                    sort-by="id"
+                    class="elevation-1 mt-4"
+            >
+                <template v-slot:top>
+                    <v-toolbar flat color="white">
+                        <v-toolbar-title>Orders</v-toolbar-title>
+                        <v-divider
+                                class="mx-4"
+                                inset
+                                vertical
+                        ></v-divider>
+                        <div class="flex-grow-1"></div>
+                        <v-text-field
+                                v-model="search"
+                                append-icon="search"
+                                label="Search"
+                                single-line
+                                hide-details
+                                class="col-md-4"
+                        ></v-text-field>
+                        <v-dialog v-model="dialog" max-width="500px">
+                            <template v-slot:activator="{ on }">
+                                <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                            </template>
+                            <v-card>
+                                <v-card-title>
+                                    <span class="headline">{{ formTitle }}</span>
+                                </v-card-title>
+
+                                <v-card-text>
+                                    <v-container>
+                                        <v-row>
+                                            <v-col cols="12" sm="6" md="6">
+                                                <v-select :items="clients" item-text="name" v-model="selectedClient" item-value="id"
+                                                          label="Select a Client"></v-select>
+                                            </v-col>
+                                            <v-col cols="12" sm="6" md="6">
+                                                <v-select :items="products" item-text="name" v-model="selectedProduct" item-value="id"
+                                                          label="Select a product"></v-select>
+                                            </v-col>
+                                            <v-col cols="12" sm="6" md="6">
+                                                <v-text-field v-model="editedOrder.quantity" label="Quantity" type="number"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6" md="6">
+                                                <v-text-field v-model="editedOrder.product.price" label="Price" type="number"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6" md="6">
+                                                <v-text-field label="Subtotal" v-bind:value="editedOrder.product.price * editedOrder.quantity" readonly></v-text-field>
+                                            </v-col>
+                                        </v-row>
+                                    </v-container>
+                                </v-card-text>
+
+                                <v-card-actions>
+                                    <div class="flex-grow-1"></div>
+                                    <v-btn color="gray" text @click="close">Cancel</v-btn>
+                                    <v-btn color="green" text @click="save">Save</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                    </v-toolbar>
+                </template>
+                <template v-slot:item.action="{ item }">
+                    <v-icon
+                            small
+                            class="mr-2"
+                            @click="editOrder(item)">
+                        edit
+                    </v-icon>
+                    <v-icon
+                            small
+                            @click="deleteOrder(item)">
+                        delete
+                    </v-icon>
+                </template>
+
+            </v-data-table>
+        </template>
+        <template>
+            <v-footer dark absolute>
+                <v-card class="flex" flat tile>
+                    <v-card-actions class="grey darken-3 justify-center">
+                        <strong>Brayan Kelly 20181876</strong> -
+                        <strong> {{ new Date().getFullYear() }} </strong>
+                    </v-card-actions>
+                </v-card>
+            </v-footer>
         </template>
     </v-app>
 </div>

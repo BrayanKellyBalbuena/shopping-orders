@@ -65,7 +65,7 @@
                         ></v-text-field>
                         <v-dialog v-model="dialog" max-width="500px">
                             <template v-slot:activator="{ on }">
-                                <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                                <v-btn color="green" dark class="mb-2" v-on="on">New Item</v-btn>
                             </template>
                             <v-card>
                                 <v-card-title>
@@ -93,8 +93,8 @@
 
                                 <v-card-actions>
                                     <div class="flex-grow-1"></div>
-                                    <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                                    <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                                    <v-btn color="gray" text @click="close">Cancel</v-btn>
+                                    <v-btn color="green" text @click="save">Save</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-dialog>
@@ -123,7 +123,8 @@
             <v-footer dark absolute>
                 <v-card class="flex" flat tile>
                     <v-card-actions class="grey darken-3 justify-center">
-                        {{ new Date().getFullYear() }} — <strong>Brayan Kelly 20181876</strong>
+                        <strong>Brayan Kelly 20181876</strong> ---
+                        <strong> {{ new Date().getFullYear() }} </strong>
                     </v-card-actions>
                 </v-card>
             </v-footer>

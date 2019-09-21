@@ -21,12 +21,12 @@ import java.util.List;
 
 public class ShoppingOrderRepositoryImpl implements ShoppingOrderRepository {
 
-   private ExcelFileHelper excelFileHelper;
-   private Sheet           shoppingOrdersSheet;
-   private Iterator<Row>   sheetIterator;
-   private Row             shoppingOrderRow;
-   private final Integer ORDER_NEW_ID = 0;
-   private final int FIRST_ROW = 0;
+   private ExcelFileHelper  excelFileHelper;
+   private Sheet            shoppingOrdersSheet;
+   private Iterator<Row>    sheetIterator;
+   private Row              shoppingOrderRow;
+   private final Integer    ORDER_NEW_ID = 0;
+   private final int        FIRST_ROW = 0;
 
     public ShoppingOrderRepositoryImpl(String path) throws IOException {
         excelFileHelper = new ExcelFileHelper(path);
@@ -123,10 +123,11 @@ public class ShoppingOrderRepositoryImpl implements ShoppingOrderRepository {
         sheetIterator.next();
 
         while (sheetIterator.hasNext()) {
+            shoppingOrderRow = sheetIterator.next();
+
             if(shoppingOrderRow.getCell(ClientCell.ID.getIntValue()) != null) {
-                shoppingOrderRow = sheetIterator.next();
+                shoppingOrders.add(getShoppingOrderFromRow(shoppingOrderRow));
             }
-            shoppingOrders.add(getShoppingOrderFromRow(shoppingOrderRow));
         }
 
         return shoppingOrders;
@@ -139,7 +140,7 @@ public class ShoppingOrderRepositoryImpl implements ShoppingOrderRepository {
                 row.getCell( ShoppingOrderCell.CLIENT_NAME.getIntValue() ).getStringCellValue(),
 
                 new Product( (int) row.getCell(ShoppingOrderCell.PRODUCT_ID.getIntValue()).getNumericCellValue(),
-                        row.getCell( ShoppingOrderCell.CLIENT_NAME.getIntValue() ).getStringCellValue(),
+                        row.getCell( ShoppingOrderCell.PRODUCT_NAME.getIntValue() ).getStringCellValue(),
                         row.getCell( ShoppingOrderCell.PRICE.getIntValue() ).getNumericCellValue()),
 
                 row.getCell(ShoppingOrderCell.ORDER_DATE.getIntValue()).getDateCellValue().toString(),
