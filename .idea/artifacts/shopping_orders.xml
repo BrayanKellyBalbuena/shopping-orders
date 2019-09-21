@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="shopping-orders">
+    <output-path>$PROJECT_DIR$/out/artifacts/shopping_orders</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="shopping-orders/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="shopping-orders" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-databind:2.9.9" />
+          <element id="library" level="project" name="org.apache.poi:poi-ooxml:4.1.0" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/web/WEB-INF/resources" />
+    </root>
+  </artifact>
+</component>

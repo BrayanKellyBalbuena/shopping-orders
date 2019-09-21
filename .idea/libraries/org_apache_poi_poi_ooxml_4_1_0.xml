@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="org.apache.poi:poi-ooxml:4.1.0" type="repository">
+    <properties maven-id="org.apache.poi:poi-ooxml:4.1.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/poi-ooxml-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/poi-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/commons-codec-1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/commons-collections4-4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/poi-ooxml-schemas-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/xmlbeans-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/commons-compress-1.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/libs/curvesapi-1.06.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

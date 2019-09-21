@@ -1,0 +1,73 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: scrip
+  Date: 9/15/2019
+  Time: 2:15 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Orders</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="css/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <script src="js/libs/vue.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="index.jsp">Logo</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link " href="clients.jsp">Clients</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="orders.jsp">Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="products.jsp">Products</a>
+        </li>
+    </ul>
+</nav>
+<div id="app">
+    <v-app>
+        <template>
+            <v-card>
+                <v-card-title>
+                    Nutrition
+                    <div class="flex-grow-1"></div>
+                    <v-text-field
+                            v-model="search"
+                            append-icon="search"
+                            label="Search"
+                            single-line
+                            hide-details
+                    ></v-text-field>
+                </v-card-title>
+                <v-data-table
+                        :headers="headers"
+                        :items="orders"
+                        :items-per-page="10"
+                        :single-select="singleSelect"
+                        item-key="name"
+                        :search="search"
+                        show-select
+                        class="elevation-1"
+
+                ></v-data-table>
+            </v-card>
+        </template>
+    </v-app>
+</div>
+
+<script src="js/libs/axios.js"></script>
+<script src="js/libs/vuetify.js"></script>
+<script src="js/orders.js"></script>
+</body>
+</html>
