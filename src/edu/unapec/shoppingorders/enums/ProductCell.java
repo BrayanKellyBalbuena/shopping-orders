@@ -4,7 +4,8 @@ public enum ProductCell {
     ID(0),
     NAME(1),
     PRICE(2),
-    GENERATED_ID(3);
+    CREATED_DATE(3),
+    GENERATED_ID(4);
 
     private final int cellIndex;
 

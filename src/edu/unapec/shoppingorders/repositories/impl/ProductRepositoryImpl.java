@@ -69,6 +69,7 @@ public class ProductRepositoryImpl implements ProductRepository {
             row.createCell(ProductCell.ID.getIntValue()).setCellValue(id);
             row.createCell(ProductCell.NAME.getIntValue()).setCellValue(product.getName());
             row.createCell(ProductCell.PRICE.getIntValue()).setCellValue(product.getPrice());
+            row.createCell(ProductCell.CREATED_DATE.getIntValue()).setCellValue(product.getCreatedDate());
         }
     }
 
@@ -124,7 +125,8 @@ public class ProductRepositoryImpl implements ProductRepository {
         return new Product(
                 (int)(row.getCell(ProductCell.ID.getIntValue()).getNumericCellValue()),
                 row.getCell(ProductCell.NAME.getIntValue()).getStringCellValue(),
-                row.getCell(ProductCell.PRICE.getIntValue()).getNumericCellValue()
+                row.getCell(ProductCell.PRICE.getIntValue()).getNumericCellValue(),
+                row.getCell(ProductCell.CREATED_DATE.getIntValue()).getStringCellValue()
         );
     }
 }

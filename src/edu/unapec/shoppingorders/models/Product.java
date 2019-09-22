@@ -4,6 +4,7 @@ public class Product {
    private int id;
    private String name;
    private double price;
+   private String createdDate;
 
    public Product() {}
 
@@ -11,6 +12,13 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public Product(int id, String name, double price, String createdDate) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.createdDate = createdDate;
     }
 
     public int getId() {
@@ -35,5 +43,13 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 }

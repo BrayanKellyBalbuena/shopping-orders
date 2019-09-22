@@ -10,6 +10,7 @@ new Vue({
                 { text: 'Id', value: 'id' },
                 { text: 'Name', value: 'name' },
                 { text: 'Price', value: 'price' },
+                { text: 'Created Date', value: 'createdDate'},
                 { text: 'Actions', value: 'action', sortable: false }
             ],
             products: [],
@@ -17,11 +18,13 @@ new Vue({
                 id: 0,
                 name: '',
                 price: 0.0,
+                createdDate: ''
             },
             defaultProduct: {
                 id: 0,
                 name: '',
                 price: 0.0,
+                createdDate: ''
             },
             editedIndex: -1,
             API_PATH: "./api/products"
@@ -97,7 +100,8 @@ new Vue({
             } else {
                 axios.post(this.API_PATH,{
                     name: this.editedProduct.name,
-                    price: this.editedProduct.price}
+                    price: this.editedProduct.price,
+                    createdDate: new Date().toDateString()}
                 ).then( (response) => {
                     this.getAllMembers(this)
                 }).catch((error) => {
