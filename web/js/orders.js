@@ -24,8 +24,10 @@ new Vue({
             products:[],
             orders: [],
             clients:[],
-            selectedClient: {},
-            selectedProduct: {},
+            selectedClientId: {},
+            selectedProductId: {},
+            selectedClient:{},
+            selectedProduct:{},
             editedOrder: {
                 id: 0,
                 clientName: '',
@@ -57,8 +59,18 @@ new Vue({
 
     watch: {
         dialog (val) {
-            val || this.close()
+            val || this.close();
+        },
+
+        selectedProductId(val) {
+            this.selectedProduct = this.products.find(p => p.id === val);
+            this.editedOrder.product = this.selectedProduct;
+        },
+
+        selectedClientId(val) {
+            this.selectedClient = this.clients.find(c => c.id === val);
         }
+
     },
 
     mounted: function(){
@@ -90,8 +102,8 @@ new Vue({
         editOrder: function(order) {
             this.editedIndex = this.orders.indexOf(order);
             this.editedOrder = Object.assign({}, order);
-            this.selectedClient = order.clientId;
-            this.selectedProduct = order.product.id;
+            this.selectedClientId = order.clientId;
+            this.selectedProductId = order.product.id;
             this.dialog = true;
         },
 
@@ -120,15 +132,15 @@ new Vue({
 
         save () {
             if (this.editedIndex > -1) {
-                let currentProduct = this.products.find( p => p.id === this.selectedProduct);
-                let currentClient = this.clients.find( c => c.id === this.selectedClient);
+
+                let currentClient = this.clients.find( c => c.id === this.selectedClientId);
                 axios.put(this.API_ORDERS,{
                     id: this.editedOrder.id,
                     clientId: currentClient.id,
                     clientName: currentClient.name,
-                    product: currentProduct,
+                    product: this.selectedProduct,
                     quantity: this.editedOrder.quantity,
-                    subTotal: currentProduct.price * this.editedOrder.quantity,
+                    subTotal: this.selectedProduct.price * this.editedOrder.quantity,
                     orderDate:  new Date().toDateString()}
 
                 ).then( (response) => {
@@ -138,14 +150,14 @@ new Vue({
                 });
 
             } else {
-                let currentProduct = this.products.find( p => p.id === this.selectedProduct);
-                let currentClient = this.clients.find( c => c.id === this.selectedClient);
+
+                let currentClient = this.clients.find( c => c.id === this.selectedClientId);
                 axios.post(this.API_ORDERS,{
                     clientId: currentClient.id,
                     clientName: currentClient.name,
-                    product: currentProduct,
+                    product: this.selectedProduct,
                     quantity: this.editedOrder.quantity,
-                    subTotal: currentProduct.price * this.editedOrder.quantity,
+                    subTotal: this.selectedProduct.price * this.editedOrder.quantity,
                     orderDate:  new Date().toDateString()}
                 ).then( (response) => {
                     this.getAllMembers(this)

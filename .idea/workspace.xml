@@ -8,11 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="27619d40-8f31-47f2-9edb-d5e8661da852" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/enums/ProductCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/enums/ProductCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/repositories/impl/ProductRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/unapec/shoppingorders/repositories/impl/ProductRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/resources/shoppings.xls" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/resources/shoppings.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/orders.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +196,7 @@
       <workItem from="1569084614453" duration="2473000" />
       <workItem from="1569117624327" duration="2138000" />
       <workItem from="1569119786575" duration="621000" />
-      <workItem from="1569120701660" duration="1843000" />
+      <workItem from="1569120701660" duration="5722000" />
     </task>
     <servers />
   </component>

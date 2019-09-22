@@ -76,18 +76,18 @@
                                     <v-container>
                                         <v-row>
                                             <v-col cols="12" sm="6" md="6">
-                                                <v-select :items="clients" item-text="name" v-model="selectedClient" item-value="id"
+                                                <v-select :items="clients" item-text="name" v-model="selectedClientId" item-value="id"
                                                           label="Select a Client"></v-select>
                                             </v-col>
                                             <v-col cols="12" sm="6" md="6">
-                                                <v-select :items="products" item-text="name" v-model="selectedProduct" item-value="id"
+                                                <v-select :items="products" item-text="name" v-model="selectedProductId" item-value="id"
                                                           label="Select a product"></v-select>
                                             </v-col>
                                             <v-col cols="12" sm="6" md="6">
                                                 <v-text-field v-model="editedOrder.quantity" label="Quantity" type="number"></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="6" md="6">
-                                                <v-text-field v-model="editedOrder.product.price" label="Price" type="number"></v-text-field>
+                                                <v-text-field v-model="selectedProduct.price" label="Price" type="number" readonly></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="6" md="6">
                                                 <v-text-field label="Subtotal" v-bind:value="editedOrder.product.price * editedOrder.quantity" readonly></v-text-field>
