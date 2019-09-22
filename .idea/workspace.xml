@@ -32,6 +32,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -182,7 +185,13 @@
       <workItem from="1568938421986" duration="20580000" />
       <workItem from="1568982312675" duration="1731000" />
       <workItem from="1568999759897" duration="14609000" />
-      <workItem from="1569019638333" duration="15554000" />
+      <workItem from="1569019638333" duration="27141000" />
+      <workItem from="1569068930396" duration="3524000" />
+      <workItem from="1569073736730" duration="1467000" />
+      <workItem from="1569078008715" duration="925000" />
+      <workItem from="1569084614453" duration="2473000" />
+      <workItem from="1569117624327" duration="2138000" />
+      <workItem from="1569119786575" duration="621000" />
     </task>
     <servers />
   </component>
@@ -193,19 +202,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edu/unapec/shoppingorders/repositories/impl/ShoppingOrderRepositoryImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edu/unapec/shoppingorders/servlets/ClientsServlet.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/edu/unapec/shoppingorders/servlets/ProductsServlet.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/unapec/shoppingorders/servlets/ShoppingOrdersServlet.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -35,19 +35,19 @@
     <v-app>
       <template>
         <v-footer dark absolute>
-            <v-card class="flex" flat tile>
-                <v-card-actions class="grey darken-3 justify-center">
-                    <strong>Brayan Kelly 20181876</strong> -
-                    <strong> {{ new Date().getFullYear() }} </strong>
-                </v-card-actions>
-            </v-card>
+          <v-card class="flex" flat tile>
+            <v-card-actions class="grey darken-3 justify-center">
+              <strong>Brayan Kelly 20181876</strong>  -
+              <strong>Date {{ new Date() }} </strong>
+            </v-card-actions>
+          </v-card>
         </v-footer>
-    </template>
+      </template>
     </v-app>
   </div>
 
   <script src="js/libs/vue.js"></script>
   <script src="js/libs/vuetify.js"></script>
-
+  <script src="js/libs/axios.js"></script>
   </body>
 </html>

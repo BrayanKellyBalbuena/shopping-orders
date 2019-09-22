@@ -44,7 +44,7 @@
                     :items="clients"
                     :search="search"
                     sort-by="id"
-                    class="elevation-1"
+                    class="elevation-1 mt-4"
             >
                 <template v-slot:top>
                     <v-toolbar flat color="white">
@@ -123,8 +123,8 @@
             <v-footer dark absolute>
                 <v-card class="flex" flat tile>
                     <v-card-actions class="grey darken-3 justify-center">
-                        <strong>Brayan Kelly 20181876</strong> ---
-                        <strong> {{ new Date().getFullYear() }} </strong>
+                        <strong>Brayan Kelly 20181876</strong>  -
+                        <strong>Date {{ new Date() }} </strong>
                     </v-card-actions>
                 </v-card>
             </v-footer>

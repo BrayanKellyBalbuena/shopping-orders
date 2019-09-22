@@ -5,7 +5,6 @@ import edu.unapec.shoppingorders.constants.ExcelSheetName;
 import edu.unapec.shoppingorders.helpers.ExcelFileHelper;
 import edu.unapec.shoppingorders.models.Client;
 import edu.unapec.shoppingorders.repositories.ClientRepository;
-import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.IOException;
@@ -38,6 +37,7 @@ public class ClientRepositoryImpl implements ClientRepository {
     private Cell getGeneratedIdCell() {
        return clientsSheet.getRow(0).getCell(ClientCell.GENERATED_ID.getIntValue());
     }
+
     @Override
     public void update(Client entity) throws IOException {
         clientRow = findRowById(entity.getId());
@@ -48,15 +48,22 @@ public class ClientRepositoryImpl implements ClientRepository {
 
     private void fillRow(Row row, Client client, Integer id) {
         if (client.getId() != NEW_CLIENT) {
-            row.getCell(ClientCell.ID.getIntValue()).setCellValue(client.getId());
-            row.getCell(ClientCell.NAME.getIntValue()).setCellValue(client.getName());
-            row.getCell(ClientCell.LAST_NAME.getIntValue()).setCellValue(client.getLastName());
-            row.getCell(ClientCell.IDENTIFICATION_CARD.getIntValue()).setCellValue(client.getIdentificationCard());
+            row.getCell(ClientCell.NAME.getIntValue())
+                    .setCellValue(client.getName());
+            row.getCell(ClientCell.LAST_NAME.getIntValue())
+                    .setCellValue(client.getLastName());
+            row.getCell(ClientCell.IDENTIFICATION_CARD.getIntValue())
+                    .setCellValue(client.getIdentificationCard());
         } else {
             row.createCell(ClientCell.ID.getIntValue()).setCellValue(id);
-            row.createCell(ClientCell.NAME.getIntValue()).setCellValue(client.getName());
-            row.createCell(ClientCell.LAST_NAME.getIntValue()).setCellValue(client.getLastName());
-            row.createCell(ClientCell.IDENTIFICATION_CARD.getIntValue()).setCellValue(client.getIdentificationCard());
+            row.createCell(ClientCell.NAME.getIntValue())
+                    .setCellValue(client.getName());
+            row.createCell(ClientCell.LAST_NAME.getIntValue())
+                    .setCellValue(client.getLastName());
+            row.createCell(ClientCell.IDENTIFICATION_CARD.getIntValue())
+                    .setCellValue(client.getIdentificationCard());
+            row.createCell(ClientCell.CREATED_DATE.getIntValue())
+                    .setCellValue(client.getCreatedDate());
         }
     }
 
@@ -120,7 +127,8 @@ public class ClientRepositoryImpl implements ClientRepository {
                 (int)(row.getCell(ClientCell.ID.getIntValue()).getNumericCellValue()),
                 row.getCell(ClientCell.NAME.getIntValue()).getStringCellValue(),
                 row.getCell(ClientCell.LAST_NAME.getIntValue()).getStringCellValue(),
-                row.getCell(ClientCell.IDENTIFICATION_CARD.getIntValue()).getStringCellValue()
+                row.getCell(ClientCell.IDENTIFICATION_CARD.getIntValue()).getStringCellValue(),
+                row.getCell(ClientCell.CREATED_DATE.getIntValue()).getStringCellValue()
         );
     }
 }

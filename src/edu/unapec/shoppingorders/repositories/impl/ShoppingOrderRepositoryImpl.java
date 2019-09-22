@@ -21,12 +21,12 @@ import java.util.List;
 
 public class ShoppingOrderRepositoryImpl implements ShoppingOrderRepository {
 
-   private ExcelFileHelper  excelFileHelper;
-   private Sheet            shoppingOrdersSheet;
-   private Iterator<Row>    sheetIterator;
-   private Row              shoppingOrderRow;
-   private final Integer    ORDER_NEW_ID = 0;
-   private final int        FIRST_ROW = 0;
+   private ExcelFileHelper excelFileHelper;
+   private Sheet           shoppingOrdersSheet;
+   private Iterator<Row>   sheetIterator;
+   private Row             shoppingOrderRow;
+   private final Integer ORDER_NEW_ID = 0;
+   private final int FIRST_ROW = 0;
 
     public ShoppingOrderRepositoryImpl(String path) throws IOException {
         excelFileHelper = new ExcelFileHelper(path);

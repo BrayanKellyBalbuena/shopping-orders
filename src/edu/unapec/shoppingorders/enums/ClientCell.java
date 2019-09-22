@@ -5,7 +5,8 @@ public enum ClientCell {
     NAME(1),
     LAST_NAME(2),
     IDENTIFICATION_CARD(3),
-    GENERATED_ID(4);
+    CREATED_DATE(4),
+    GENERATED_ID(5);
 
     private final int cell;
 

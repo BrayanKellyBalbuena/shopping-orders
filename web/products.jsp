@@ -43,7 +43,7 @@
                     :items="products"
                     :search="search"
                     sort-by="id"
-                    class="elevation-1"
+                    class="elevation-1 mt-4"
             >
                 <template v-slot:top>
                     <v-toolbar flat color="white">
@@ -64,7 +64,7 @@
                         ></v-text-field>
                         <v-dialog v-model="dialog" max-width="500px">
                             <template v-slot:activator="{ on }">
-                                <v-btn color="green " dark class="mb-2" v-on="on">New Item</v-btn>
+                                <v-btn color="green" dark class="mb-2" v-on="on">New Item</v-btn>
                             </template>
                             <v-card>
                                 <v-card-title>
@@ -121,8 +121,7 @@
             <v-footer dark absolute>
                 <v-card class="flex" flat tile>
                     <v-card-actions class="grey darken-3 justify-center">
-                        <strong>Brayan Kelly 20181876</strong> ---
-                        <strong> {{ new Date().getFullYear() }} </strong>
+                        {{ new Date().getFullYear() }} — <strong>Brayan Kelly 20181876</strong>
                     </v-card-actions>
                 </v-card>
             </v-footer>

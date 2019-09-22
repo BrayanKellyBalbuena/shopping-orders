@@ -11,6 +11,7 @@ new Vue({
                 { text: 'Name', value: 'name' },
                 { text: 'LastName', value: 'lastName' },
                 { text: 'IdentificationCard', value: 'identificationCard' },
+                {text: 'Created Date', value: 'createdDate'},
                 { text: 'Actions', value: 'action', sortable: false }
             ],
             clients: [],
@@ -18,13 +19,15 @@ new Vue({
                 id: 0,
                 name: '',
                 lastName: '',
-                identificationCard: ''
+                identificationCard: '',
+                createdDate: ''
             },
             defaultClient: {
                 id: 0,
                 name: '',
                 lastName: '',
-                identificationCard: ''
+                identificationCard: '',
+                createdDate: ''
             },
             editedIndex: -1,
             API_PATH: "./api/clients"
@@ -50,7 +53,7 @@ new Vue({
 
     methods:{
         getAllMembers: function(vm){
-            axios.get("./api/clients")
+            axios.get(this.API_PATH)
                 .then(function(response){
                     vm.clients = response.data;
                 });
@@ -58,10 +61,8 @@ new Vue({
 
         editClient: function(client) {
             this.editedIndex = this.clients.indexOf(client);
-            console.log(this.editedIndex);
             this.editedClient = Object.assign({}, client);
             this.dialog = true;
-            console.log(this.editedClient.identificationCard);
         },
 
         deleteClient: function(client) {
@@ -72,11 +73,6 @@ new Vue({
                         id: id
                     }
                 } ).then( (response) => {
-                    let a =
-                        _.remove(this.clients, function(currentObject) {
-                            return currentObject.id === client.id;
-                        });
-                    console.log(_.findIndex(this.clients, function(o) { return o.id == client.id; }));
                     this.getAllMembers(this)
                 }).catch( (error) => {
                     alert(error)
@@ -93,7 +89,6 @@ new Vue({
         },
 
         save () {
-            let $v = this;
             if (this.editedIndex > -1) {
                 axios.put(this.API_PATH,{
                     id: this.editedClient.id,
@@ -110,7 +105,8 @@ new Vue({
                 axios.post(this.API_PATH,{
                     name: this.editedClient.name,
                     lastName: this.editedClient.lastName,
-                    identificationCard : this.editedClient.identificationCard}
+                    identificationCard : this.editedClient.identificationCard,
+                    createdDate: new Date().toDateString()}
                 ).then( (response) => {
                     this.getAllMembers(this)
                 }).catch((error) => {
